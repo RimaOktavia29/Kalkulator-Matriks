@@ -1,0 +1,492 @@
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, #ff6b9d, #ffa8cc);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.student-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.student-info p {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Calculator Container */
+.calculator-container {
+    padding: 30px;
+}
+
+/* Matrix Configuration */
+.matrix-config {
+    background: linear-gradient(135deg, #ffb3d9, #ffcce5);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 2px solid #ff80b3;
+}
+
+.matrix-config h3 {
+    color: #d63384;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.config-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.config-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid #ff99cc;
+}
+
+.config-group label {
+    font-weight: bold;
+    color: #d63384;
+    min-width: 80px;
+}
+
+.config-group select {
+    padding: 8px 12px;
+    border: 2px solid #ff99cc;
+    border-radius: 8px;
+    background: white;
+    color: #d63384;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.config-group select:hover {
+    border-color: #ff66b3;
+    transform: translateY(-2px);
+}
+
+.config-group span {
+    font-weight: bold;
+    color: #d63384;
+    font-size: 1.2rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b9d, #ff8fb3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #ffb3d9, #ffcce5);
+    color: #d63384;
+    border: 2px solid #ff99cc;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #ff99cc, #ffb3d9);
+    transform: translateY(-2px);
+}
+
+.btn-operation {
+    background: linear-gradient(135deg, #e91e63, #f06292);
+    color: white;
+    margin: 5px;
+    min-width: 120px;
+}
+
+.btn-operation:hover {
+    background: linear-gradient(135deg, #c2185b, #e91e63);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+/* Matrix Input Area */
+.matrix-input-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.matrix-section {
+    background: linear-gradient(135deg, #fff0f5, #ffe0f0);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #ffb3d9;
+}
+
+.matrix-section h4 {
+    color: #d63384;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.matrix-grid {
+    display: grid;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 1px solid #ff99cc;
+}
+
+.matrix-input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid #ff99cc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #d63384;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.matrix-input:focus {
+    outline: none;
+    border-color: #ff6b9d;
+    box-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
+    transform: scale(1.05);
+}
+
+.matrix-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Operations */
+.operations {
+    background: linear-gradient(135deg, #ffe0f0, #fff0f5);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 2px solid #ffb3d9;
+}
+
+.operations h3 {
+    color: #d63384;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
+.operation-category {
+    margin-bottom: 20px;
+}
+
+.operation-category h4 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.operation-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Scalar and Power Input */
+.scalar-input, .power-input {
+    background: linear-gradient(135deg, #ffcce5, #ffe0f0);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 2px solid #ff99cc;
+}
+
+.scalar-input label, .power-input label {
+    display: block;
+    margin-bottom: 10px;
+    color: #d63384;
+    font-weight: bold;
+}
+
+.scalar-input input, .power-input input {
+    padding: 10px 15px;
+    border: 2px solid #ff99cc;
+    border-radius: 8px;
+    margin: 0 10px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: #d63384;
+}
+
+/* Result Area */
+.result-area {
+    background: linear-gradient(135deg, #f8f9fa, #fff0f5);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #ffb3d9;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.result-header h3 {
+    color: #d63384;
+    font-size: 1.4rem;
+}
+
+.result-display {
+    min-height: 100px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #ff99cc;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+}
+
+.result-matrix {
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.result-cell {
+    width: 60px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffb3d9;
+    color: #d63384;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.result-text {
+    color: #d63384;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.error-message {
+    color: #dc3545;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #ff6b9d, #ffa8cc);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    .matrix-input-area {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .config-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .student-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .matrix-input {
+        width: 50px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+    
+    .result-cell {
+        width: 50px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+    
+    .operation-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-operation {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .calculator-container {
+        padding: 15px;
+    }
+    
+    .matrix-section, .operations, .result-area {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .matrix-input {
+        width: 45px;
+        height: 32px;
+        font-size: 0.75rem;
+    }
+    
+    .result-cell {
+        width: 45px;
+        height: 32px;
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Matriks - Rima Oktavia Salsabila</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🧮 Kalkulator Matriks</h1>
+            <div class="student-info">
+                <p><strong>Nama:</strong> Rima Oktavia Salsabila</p>
+                <p><strong>NIM:</strong> 411241025</p>
+            </div>
+        </header>
+
+        <div class="calculator-container">
+            <!-- Matrix Size Configuration -->
+            <div class="matrix-config">
+                <h3>⚙️ Konfigurasi Matriks</h3>
+                <div class="config-row">
+                    <div class="config-group">
+                        <label>Matriks A:</label>
+                        <select id="rowsA">
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <span>×</span>
+                        <select id="colsA">
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    
+                    <div class="config-group">
+                        <label>Matriks B:</label>
+                        <select id="rowsB">
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <span>×</span>
+                        <select id="colsB">
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="generateMatrices" class="btn btn-primary">🔄 Generate Matriks</button>
+            </div>
+
+            <!-- Matrix Input Area -->
+            <div class="matrix-input-area">
+                <div class="matrix-section">
+                    <h4>📊 Matriks A</h4>
+                    <div id="matrixA" class="matrix-grid"></div>
+                    <div class="matrix-controls">
+                        <button id="randomA" class="btn btn-secondary">🎲 Random</button>
+                        <button id="zeroA" class="btn btn-secondary">0️⃣ Kosongkan</button>
+                        <button id="identityA" class="btn btn-secondary">🆔 Identitas</button>
+                    </div>
+                </div>
+
+                <div class="matrix-section">
+                    <h4>📊 Matriks B</h4>
+                    <div id="matrixB" class="matrix-grid"></div>
+                    <div class="matrix-controls">
+                        <button id="randomB" class="btn btn-secondary">🎲 Random</button>
+                        <button id="zeroB" class="btn btn-secondary">0️⃣ Kosongkan</button>
+                        <button id="identityB" class="btn btn-secondary">🆔 Identitas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operations -->
+            <div class="operations">
+                <h3>🔢 Operasi Matriks</h3>
+                
+                <div class="operation-category">
+                    <h4>Operasi Dasar</h4>
+                    <div class="operation-buttons">
+                        <button id="add" class="btn btn-operation">➕ A + B</button>
+                        <button id="subtract" class="btn btn-operation">➖ A - B</button>
+                        <button id="multiply" class="btn btn-operation">✖️ A × B</button>
+                        <button id="scalarMultiply" class="btn btn-operation">🔢 Skalar × A</button>
+                    </div>
+                </div>
+
+                <div class="operation-category">
+                    <h4>Operasi Lanjutan</h4>
+                    <div class="operation-buttons">
+                        <button id="transpose" class="btn btn-operation">🔄 Transpose A</button>
+                        <button id="determinant" class="btn btn-operation">🎯 Determinan A</button>
+                        <button id="inverse" class="btn btn-operation">↩️ Invers A</button>
+                        <button id="power" class="btn btn-operation">⚡ A^n</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scalar Input (hidden by default) -->
+            <div id="scalarInput" class="scalar-input" style="display: none;">
+                <label for="scalarValue">Masukkan nilai skalar:</label>
+                <input type="number" id="scalarValue" value="2" step="0.1">
+                <button id="applyScalar" class="btn btn-primary">✅ Terapkan</button>
+                <button id="cancelScalar" class="btn btn-secondary">❌ Batal</button>
+            </div>
+
+            <!-- Power Input (hidden by default) -->
+            <div id="powerInput" class="power-input" style="display: none;">
+                <label for="powerValue">Masukkan pangkat (n):</label>
+                <input type="number" id="powerValue" value="2" min="0" max="10">
+                <button id="applyPower" class="btn btn-primary">✅ Terapkan</button>
+                <button id="cancelPower" class="btn btn-secondary">❌ Batal</button>
+            </div>
+
+            <!-- Result Area -->
+            <div class="result-area">
+                <div class="result-header">
+                    <h3>📋 Hasil</h3>
+                    <button id="clearResult" class="btn btn-secondary">🗑️ Hapus Hasil</button>
+                </div>
+                <div id="result" class="result-display"></div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>💖 Dibuat dengan cinta untuk pembelajaran matematika</p>
+            <p>© 2024 Rima Oktavia Salsabila - Kalkulator Matriks Interaktif</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
